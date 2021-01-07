@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Payment from "./Payment";
 
 class Header extends React.Component {
   headerContent() {
@@ -14,11 +15,17 @@ class Header extends React.Component {
       case null:
         return <li>Loading</li>;
       default:
-        return (
-          <li>
+        return [
+          <li key="0">
+            <Payment />
+          </li>,
+          <li key="1" style={{ margin: "0 8px" }}>
+            Credits : {this.props.credits}
+          </li>,
+          <li key="2">
             <a href="/api/logout">Logout</a>
-          </li>
-        );
+          </li>,
+        ];
     }
   }
   render() {
@@ -44,6 +51,7 @@ class Header extends React.Component {
 const mapStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
+    credits: state.auth.credits,
   };
 };
 
