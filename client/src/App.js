@@ -1,20 +1,32 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-const Header = () => <div>Header</div>;
+import { connect } from "react-redux";
+import * as actions from "./store/actions";
+import Header from "./components/Header";
+import Landing from "./components/Landing";
 const Dashboard = () => <div>Dashboard</div>;
 const SurveyNew = () => <div>SurveyNew</div>;
-const Landing = () => <div>Landing</div>;
-const App = (props) => {
-  return (
-    <BrowserRouter>
-      <div>
-        <Header />
-        <Route path="/" exact component={Landing} />
-        <Route path="/surveys" exact component={Dashboard} />
-        <Route path="/surveys/new" exact component={SurveyNew} />
-      </div>
-    </BrowserRouter>
-  );
-};
 
-export default App;
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Route path="/" exact component={Landing} />
+          <Route path="/surveys" exact component={Dashboard} />
+          <Route path="/surveys/new" exact component={SurveyNew} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUser: () => dispatch(actions.fetchUser()),
+  };
+};
+export default connect(null, mapDispatchToProps)(App);
