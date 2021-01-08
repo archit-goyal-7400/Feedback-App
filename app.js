@@ -3,6 +3,7 @@ const app = express();
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth");
+const billingRoutes = require("./routes/billing");
 const keys = require("./config/keys");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authRoutes);
+app.use(billingRoutes);
 
 const PORT = process.env.PORT || 5000;
 mongoose.connect(keys.mongoURI).then(() => {

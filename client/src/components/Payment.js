@@ -10,7 +10,8 @@ class Payment extends React.Component {
         name="Get Feedback"
         description="5 Credits for $5"
         amount={500}
-        token={(token) => console.log(token)}
+        currency="INR"
+        token={(token) => this.props.handlePayments(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
       >
         <button className="btn">Add Credits</button>
@@ -21,7 +22,7 @@ class Payment extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handlePayments: () => dispatch(actions.handlePayments()),
+    handlePayments: (token) => dispatch(actions.handlePayments(token)),
   };
 };
 
