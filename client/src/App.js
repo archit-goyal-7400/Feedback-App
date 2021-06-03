@@ -6,6 +6,8 @@ import Header from "./components/Header";
 import Landing from "./components/Landing";
 import Dashboard from "./components/Dashboard";
 import SurveyNew from "./components/surveys/SurveyNew";
+import Footer from "./components/Footer";
+import "./App.css";
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,6 +21,7 @@ class App extends React.Component {
           <Route path="/" exact component={Landing} />
           <Route path="/surveys" exact component={Dashboard} />
           <Route path="/surveys/new" exact component={SurveyNew} />
+          <Footer />
         </div>
       </BrowserRouter>
     );

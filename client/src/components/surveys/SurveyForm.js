@@ -9,7 +9,7 @@ const FIELDS = [
   { label: "Survey Title", name: "title" },
   { label: "Subject Line", name: "subject" },
   { label: "Email Body", name: "body" },
-  { label: "Recipeient List", name: "emails" },
+  { label: "Recipeient List", name: "recipients" },
 ];
 class SurveyForm extends React.Component {
   renderFields() {
@@ -29,10 +29,10 @@ class SurveyForm extends React.Component {
   render() {
     return (
       <div>
-        <form
-          onSubmit={this.props.handleSubmit((values) => console.log(values))}
-        >
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
+          <br />
+          <br />
           <Link to="/surveys" className="red btn-flat white-text">
             Cancel
           </Link>
@@ -61,4 +61,5 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: "surveyForm",
+  destroyOnUnmount: false,
 })(SurveyForm);

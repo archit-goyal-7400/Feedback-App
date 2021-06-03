@@ -36,8 +36,9 @@ class Header extends React.Component {
           <Link
             to={this.props.isAuth ? "/surveys" : "/"}
             className="left brand-logo"
+            style={{ marginLeft: "8px" }}
           >
-            Get Feedback
+            Feedbacky
           </Link>
           <ul id="nav-mobile" className="right">
             {this.headerContent()}

@@ -8,10 +8,10 @@ router.post("/api/stripe", isAuthenticated, (req, res, next) => {
   // console.log(req.body);
   stripe.charges
     .create({
-      amount: 500,
+      amount: 2500,
       currency: "INR",
       source: req.body.id,
-      description: "$5 for 5 credits",
+      description: "&#8377; 5 for 5 credits",
     })
     .then((charge) => {
       req.user.credits += 5;
