@@ -25,6 +25,14 @@ class SurveyList extends React.Component {
           </div>
         );
       });
+    else {
+      return (
+        <h4>
+          You haven't created any survey.Start making survey by pressing + at
+          bottom right of the string
+        </h4>
+      );
+    }
   }
   render() {
     return <div>{this.renderSurveys()}</div>;

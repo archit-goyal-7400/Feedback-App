@@ -23,7 +23,11 @@ class SurveyNew extends Component {
   }
 
   render() {
-    return <div style={{ height: "100vh" }}>{this.renderContent()}</div>;
+    return (
+      <div className="container" style={{ height: "100vh" }}>
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 

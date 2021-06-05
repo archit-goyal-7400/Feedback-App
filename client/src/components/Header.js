@@ -34,9 +34,9 @@ class Header extends React.Component {
       <nav>
         <div className="nav-wrapper">
           <Link
-            to={this.props.isAuth ? "/surveys" : "/"}
+            to={this.props.isAuth ? "/" : "/"}
             className="left brand-logo"
-            style={{ marginLeft: "8px" }}
+            style={{ marginLeft: "8px", textDecoration: "none" }}
           >
             Feedbacky
           </Link>
