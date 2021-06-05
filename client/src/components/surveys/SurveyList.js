@@ -4,10 +4,13 @@ import * as actions from "../../store/actions/index";
 
 class SurveyList extends React.Component {
   componentDidMount() {
+    console.log("in surveyList");
     this.props.fetchSurveys();
   }
   renderSurveys() {
-    if (this.props.surveys.length)
+    if (this.props.surveys === null) {
+      return <h4 className="center">Lodaing.........</h4>;
+    } else if (this.props.surveys.length)
       return this.props.surveys.reverse().map((survey) => {
         return (
           <div className="card darken-1" key={survey._id}>
@@ -40,7 +43,7 @@ class SurveyList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { surveys: state.survey };
+  return { surveys: state.survey.data };
 };
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -38,7 +38,7 @@ class Header extends React.Component {
             className="left brand-logo"
             style={{ marginLeft: "8px", textDecoration: "none" }}
           >
-            Feedbacky
+            FeedBacky
           </Link>
           <ul id="nav-mobile" className="right">
             {this.headerContent()}
